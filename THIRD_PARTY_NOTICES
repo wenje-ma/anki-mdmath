@@ -1,0 +1,13 @@
+mdmath bundles the following third-party libraries.
+
+## KaTeX
+- https://katex.org
+- License: MIT
+- KaTeX is a fast, easy-to-use JavaScript library for TeX math rendering,
+  copyright (c) 2013-2024 by the KaTeX contributors.
+
+## marked
+- https://marked.js.org
+- Copyright (c) 2011-2024, Christopher Jeffrey (MIT Licensed)
+- License: MIT
+- marked is a markdown parser and compiler built for speed.
