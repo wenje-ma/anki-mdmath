@@ -1,0 +1,39 @@
+/* mdmath card styles, ported from .crossnote/style.less (mpe skin). */
+body{margin:0;text-align:left;}
+/* ===== CUSTOMIZE HERE =====
+   font-size  : base font size, px (e.g. 16, 20)
+   line-height: line spacing (e.g. 1.6, 1.8)
+   padding:0 1in : desktop page margin (e.g. 0.5in, 2em)
+   color      : text color
+   font-family: body font stack
+   Edit the values below, save, then flip a card / restart Anki. */
+.mdmath{font-family:"LMRoman10","SimHei",serif;font-size:16px;line-height:1.6;color:#111;text-align:left;padding:0 1in;}
+.mdmath h1,.mdmath h2,.mdmath h3,.mdmath h4,.mdmath h5,.mdmath h6{font-family:"LMRoman10","SimHei",sans-serif;font-weight:bold;margin:1em 0 .5em;}
+.mdmath h1{font-size:1.5em;}
+.mdmath h2{font-size:1.4em;}
+.mdmath h3{font-size:1.3em;}
+.mdmath h4{font-size:1.2em;}
+.mdmath h5{font-size:1.1em;}
+.mdmath h6{font-size:1.0em;}
+.mdmath strong,.mdmath b{font-weight:bold;font-family:"LMRoman10","SimHei",serif;}
+.mdmath em,.mdmath i{font-style:italic;font-family:"LMRoman10","FangSong",serif;}
+/* katex display 1em, inline inherits size (same as style.less) */
+.mdmath .katex-display{margin:1em 0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
+.mdmath .katex-display>.katex{font-size:1em !important;}
+.mdmath .katex{font-size:inherit !important;}
+/* code blocks / inline code (no highlight, monospace) */
+.mdmath pre,.mdmath code{font-family:Consolas,monospace;}
+.mdmath pre{background:#f5f5f5;padding:.8em 1em;border-radius:4px;overflow-x:auto;line-height:1.45;}
+.mdmath code{background:#f5f5f5;padding:.15em .35em;border-radius:3px;}
+.mdmath pre code{background:none;padding:0;}
+/* blockquote */
+.mdmath blockquote{margin:0;padding:.2em 1em;border-left:3px solid #ccc;color:#333;}
+/* table */
+.mdmath table{border-collapse:collapse;margin:1em 0;}
+.mdmath th,.mdmath td{border:1px solid #ccc;padding:.3em .6em;}
+.mdmath th{background:#f2f2f2;}
+.mdmath hr{border:none;border-top:1px solid #ddd;margin:1.5em 0;}
+/* fix katex .tag so numbering stays with the formula */
+.mdmath .katex .tag,.mdmath .katex-display>.katex>.katex-html>.tag{display:inline-block !important;position:absolute !important;right:0 !important;font-size:1em !important;font-weight:normal !important;line-height:1.2 !important;padding:0 !important;margin:0 !important;color:#000 !important;background-color:transparent !important;border-radius:0 !important;white-space:nowrap !important;text-decoration:none !important;text-shadow:none !important;box-shadow:none !important;}
+/* chinese text in math (\text{...}) matches body */
+.mdmath .katex .mord.text,.mdmath .katex .textrm,.mdmath .katex .mtext{font-family:"LMRoman10","SimHei",serif !important;}
