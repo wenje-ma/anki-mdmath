@@ -1,0 +1,9 @@
+{
+  "name": "mdmath",
+  "author": "",
+  "version": "0.1.0",
+  "min_point_version": 0,
+  "max_point_version": 0,
+  "description": "在 Anki 字段里写 Markdown + KaTeX 数学，复习时对标 VSCode+MPE 渲染。",
+  "homepage": ""
+}

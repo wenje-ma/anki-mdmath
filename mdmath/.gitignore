@@ -1,0 +1,4 @@
+node_modules/
+.deps/
+*.ankiaddon
+__pycache__/
