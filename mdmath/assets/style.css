@@ -1,5 +1,6 @@
 /* mdmath card styles, ported from .crossnote/style.less (mpe skin). */
-.mdmath{font-family:"LMRoman10","SimHei",serif;font-size:16px;line-height:1.6;color:#111;}
+body{margin:0;text-align:left;}
+.mdmath{font-family:"LMRoman10","SimHei",serif;font-size:16px;line-height:1.6;color:#111;text-align:left;padding:0 1in;}
 .mdmath h1,.mdmath h2,.mdmath h3,.mdmath h4,.mdmath h5,.mdmath h6{font-family:"LMRoman10","SimHei",sans-serif;font-weight:bold;margin:1em 0 .5em;}
 .mdmath h1{font-size:1.5em;}
 .mdmath h2{font-size:1.4em;}
@@ -10,7 +11,7 @@
 .mdmath strong,.mdmath b{font-weight:bold;font-family:"LMRoman10","SimHei",serif;}
 .mdmath em,.mdmath i{font-style:italic;font-family:"LMRoman10","FangSong",serif;}
 /* katex display 1em, inline inherits size (same as style.less) */
-.mdmath .katex-display{margin:1em 0;}
+.mdmath .katex-display{margin:1em 0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
 .mdmath .katex-display>.katex{font-size:1em !important;}
 .mdmath .katex{font-size:inherit !important;}
 /* code blocks / inline code (no highlight, monospace) */

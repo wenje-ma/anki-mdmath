@@ -1,6 +1,8 @@
 # mdmath — Anki add-on
 
-Write **Markdown + KaTeX math** in Anki card fields; renders like VSCode + Markdown Preview Enhanced (MPE) on review. For personal use.
+Write **Markdown + KaTeX math** in Anki card fields; renders like VSCode + Markdown Preview Enhanced (MPE) on review.
+
+**Author:** wenje
 
 ## Features
 - Note type **mdmath**: fields `Front` (question) / `Back` (answer).
@@ -32,5 +34,5 @@ Recommended: install the packaged file (runtime files only).
 Run `build.ps1` in this directory -> `mdmath.ankiaddon` (for Anki "Install from file").
 
 ## Notes
-- Personal add-on, not published.
+- Published on AnkiWeb; MIT licensed.
 - KaTeX (0.16.21) + marked (12.0.2) bundled in `assets/`.

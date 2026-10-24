@@ -3,7 +3,7 @@ $ErrorActionPreference="Stop"
 $root=Split-Path -Parent $MyInvocation.MyCommand.Path
 $out=Join-Path $root "mdmath.ankiaddon"
 $tmpZip=Join-Path $root "mdmath.zip"
-$include=@("__init__.py","templates.py","manifest.json","assets")
+$include=@("__init__.py","templates.py","manifest.json","config.json","config.md","LICENSE","THIRD_PARTY_NOTICES","assets")
 if(Test-Path -LiteralPath $out){Remove-Item -LiteralPath $out -Force}
 if(Test-Path -LiteralPath $tmpZip){Remove-Item -LiteralPath $tmpZip -Force}
 $paths=$include|ForEach-Object{Join-Path $root $_}
