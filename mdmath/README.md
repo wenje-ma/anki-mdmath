@@ -1,36 +1,36 @@
-# mdmath — Anki 插件
+# mdmath — Anki add-on
 
-在 Anki 卡片字段里写 **Markdown + KaTeX 数学**，复习时渲染效果对标 VSCode + Markdown Preview Enhanced（MPE）。自用。
+Write **Markdown + KaTeX math** in Anki card fields; renders like VSCode + Markdown Preview Enhanced (MPE) on review. For personal use.
 
-## 功能
-- 提供笔记类型 **mdmath**：字段 `Front`（题目）/ `Back`（解答）。
-- 字段里直接写 Markdown，复习时自动渲染：
-  - Markdown 基础（标题 / 加粗 / 引用 / 列表 / 分隔线）
-  - 行内数学 `$...$`、块级数学 `$$...$$`（含 `\tag` 编号、`\begin{cases/pmatrix/align}` 等）
-  - 管道表格（单元格可含数学）
-  - HTML 直通（`<br>`、`<div align=center>`）
-  - 代码块（python / bash / latex / 无语言，纯等宽渲染，不加高亮）
-- 数学渲染器 **KaTeX**（与 MPE 默认一致），本地打包、离线可用。
-- 样式移植自 `.crossnote/style.less`：字体 LMRoman10 / SimHei / FangSong、KaTeX `.tag` 编号修复等。
+## Features
+- Note type **mdmath**: fields `Front` (question) / `Back` (answer).
+- Markdown in fields, auto-rendered on review:
+  - Markdown basics (headings / bold / blockquote / lists / horizontal rule)
+  - Inline `$...$` and display `$$...$$` math (incl. `\tag` numbering, `\begin{cases/pmatrix/align}` etc.)
+  - Pipe tables (cells may contain math)
+  - HTML passthrough (`<br>`, `<div align=center>`)
+  - Code blocks (python / bash / latex / none, monospace, no highlight)
+- Math rendered by **KaTeX** (same as MPE default), bundled locally, works offline.
+- Styles ported from `.crossnote/style.less`: fonts LMRoman10 / SimHei / FangSong, KaTeX `.tag` numbering fix etc.
 
-## 安装
-推荐用打包文件安装（只含插件运行文件）：
-1. 在本目录执行 `build.ps1`，生成 `mdmath.ankiaddon`。
-2. Anki → 工具 → 插件 → 从文件安装 → 选 `mdmath.ankiaddon`。
-3. 重启 Anki，插件自动创建 / 更新笔记类型 **mdmath** 并注入渲染资源。
-4. 新建笔记选 **mdmath** 类型，在 Front/Back 字段写 Markdown。
+## Install
+Recommended: install the packaged file (runtime files only).
+1. Run `build.ps1` in this directory to build `mdmath.ankiaddon`.
+2. Anki -> Tools -> Add-ons -> Install from file... -> pick `mdmath.ankiaddon`.
+3. Restart Anki; the add-on creates/updates note type **mdmath** and injects rendering assets.
+4. New note -> type **mdmath** -> write Markdown in Front/Back.
 
-> 也可手动复制插件文件夹到 Anki 插件目录：Windows 为 `%APPDATA%\Anki2\addons21\mdmath`。
-> 注意只需复制插件运行文件（`__init__.py`、`templates.py`、`manifest.json`、`assets/`）；
-> 本目录的 `.deps/`、`tests/`、`README.md`、`build.ps1` 是开发/打包用，不需要装进 Anki。
+> Or copy the add-on folder to the Anki add-ons dir: Windows `%APPDATA%\Anki2\addons21\mdmath`.
+> Only the runtime files are needed (`__init__.py`, `templates.py`, `manifest.json`, `assets/`);
+> `.deps/`, `tests/`, `README.md`, `build.ps1` are for development/packaging.
 
-## 使用提示
-- 字段里写 Markdown，换行、`#`、`$...$` 等原样保留即可；复习时自动渲染。
-- 每个 `## 题目` 段：`Front` 放题目，`Back` 放题目+解答（`### 解答`），可自行决定。
+## Usage
+- Write Markdown in fields as-is (newlines, `#`, `$...$` kept); auto-rendered on review.
+- For each `## question` section: put the question in `Front`, question+answer (`### answer`) in `Back`; your choice.
 
-## 打包
-在本目录执行 `build.ps1`，生成 `mdmath.ankiaddon`（Anki「从文件安装」用）。
+## Packaging
+Run `build.ps1` in this directory -> `mdmath.ankiaddon` (for Anki "Install from file").
 
-## 说明
-- 自用插件，未发布。
-- KaTeX（0.16.21）+ marked（12.0.2）为本地打包资源，位于 `assets/`。
+## Notes
+- Personal add-on, not published.
+- KaTeX (0.16.21) + marked (12.0.2) bundled in `assets/`.

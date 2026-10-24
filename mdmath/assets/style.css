@@ -1,127 +1,31 @@
-/* ============================================================
- * MdMath 卡片样式
- * 移植自 .crossnote/style.less（Markdown Preview Enhanced 皮肤）
- * 让 Anki 卡片渲染与 VSCode + MPE 一致。
- * 渲染容器为 .mdmath（对应 MPE 的 .markdown-preview）。
- * 数学渲染器：KaTeX（与 MPE 默认 mathRenderingOption 一致）。
- * ============================================================ */
-
-.mdmath {
-  font-family: "LMRoman10", "SimHei", serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #111;
-}
-
-.mdmath h1,
-.mdmath h2,
-.mdmath h3,
-.mdmath h4,
-.mdmath h5,
-.mdmath h6 {
-  font-family: "LMRoman10", "SimHei", sans-serif;
-  font-weight: bold;
-  margin: 1em 0 .5em;
-}
-.mdmath h1 { font-size: 1.5em; }
-.mdmath h2 { font-size: 1.4em; }
-.mdmath h3 { font-size: 1.3em; }
-.mdmath h4 { font-size: 1.2em; }
-.mdmath h5 { font-size: 1.1em; }
-.mdmath h6 { font-size: 1.0em; }
-
-.mdmath strong,
-.mdmath b {
-  font-weight: bold;
-  font-family: "LMRoman10", "SimHei", serif;
-}
-
-.mdmath em,
-.mdmath i {
-  font-style: italic;
-  font-family: "LMRoman10", "FangSong", serif;
-}
-
-/* KaTeX 公式（与 style.less 一致：display 公式 1em，行内继承字号） */
-.mdmath .katex-display { margin: 1em 0; }
-.mdmath .katex-display > .katex { font-size: 1em !important; }
-.mdmath .katex { font-size: inherit !important; }
-
-/* 代码块 / 行内代码（无高亮，纯等宽） */
-.mdmath pre,
-.mdmath code {
-  font-family: Consolas, monospace;
-}
-.mdmath pre {
-  background: #f5f5f5;
-  padding: .8em 1em;
-  border-radius: 4px;
-  overflow-x: auto;
-  line-height: 1.45;
-}
-.mdmath code {
-  background: #f5f5f5;
-  padding: .15em .35em;
-  border-radius: 3px;
-}
-.mdmath pre code {
-  background: none;
-  padding: 0;
-}
-
-/* 引用块 */
-.mdmath blockquote {
-  margin: 0;
-  padding: .2em 1em;
-  border-left: 3px solid #ccc;
-  color: #333;
-}
-
-/* 表格 */
-.mdmath table {
-  border-collapse: collapse;
-  margin: 1em 0;
-}
-.mdmath th,
-.mdmath td {
-  border: 1px solid #ccc;
-  padding: .3em .6em;
-}
-.mdmath th {
-  background: #f2f2f2;
-}
-
-.mdmath hr {
-  border: none;
-  border-top: 1px solid #ddd;
-  margin: 1.5em 0;
-}
-
-/* ========== 修复公式编号与公式不在同一行 ==========
- * 来源：.crossnote/style.less —— 还原 KaTeX 编号默认样式，
- * 避免 MPE/模板样式把 `.tag` 误套成标签徽章导致编号错位。 */
-.mdmath .katex .tag,
-.mdmath .katex-display > .katex > .katex-html > .tag {
-  display: inline-block !important;
-  position: absolute !important;
-  right: 0 !important;
-  font-size: 1em !important;
-  font-weight: normal !important;
-  line-height: 1.2 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  color: #000 !important;
-  background-color: transparent !important;
-  border-radius: 0 !important;
-  white-space: nowrap !important;
-  text-decoration: none !important;
-  text-shadow: none !important;
-  box-shadow: none !important;
-}
-
-/* 公式中的中文（\text{中文}）与正文统一 */
-.mdmath .katex .mord.text,
-.mdmath .katex .textrm,
-.mdmath .katex .mtext {
-  font-family: "LMRoman10", "SimHei", serif !important;
-}
+/* mdmath card styles, ported from .crossnote/style.less (mpe skin). */
+.mdmath{font-family:"LMRoman10","SimHei",serif;font-size:16px;line-height:1.6;color:#111;}
+.mdmath h1,.mdmath h2,.mdmath h3,.mdmath h4,.mdmath h5,.mdmath h6{font-family:"LMRoman10","SimHei",sans-serif;font-weight:bold;margin:1em 0 .5em;}
+.mdmath h1{font-size:1.5em;}
+.mdmath h2{font-size:1.4em;}
+.mdmath h3{font-size:1.3em;}
+.mdmath h4{font-size:1.2em;}
+.mdmath h5{font-size:1.1em;}
+.mdmath h6{font-size:1.0em;}
+.mdmath strong,.mdmath b{font-weight:bold;font-family:"LMRoman10","SimHei",serif;}
+.mdmath em,.mdmath i{font-style:italic;font-family:"LMRoman10","FangSong",serif;}
+/* katex display 1em, inline inherits size (same as style.less) */
+.mdmath .katex-display{margin:1em 0;}
+.mdmath .katex-display>.katex{font-size:1em !important;}
+.mdmath .katex{font-size:inherit !important;}
+/* code blocks / inline code (no highlight, monospace) */
+.mdmath pre,.mdmath code{font-family:Consolas,monospace;}
+.mdmath pre{background:#f5f5f5;padding:.8em 1em;border-radius:4px;overflow-x:auto;line-height:1.45;}
+.mdmath code{background:#f5f5f5;padding:.15em .35em;border-radius:3px;}
+.mdmath pre code{background:none;padding:0;}
+/* blockquote */
+.mdmath blockquote{margin:0;padding:.2em 1em;border-left:3px solid #ccc;color:#333;}
+/* table */
+.mdmath table{border-collapse:collapse;margin:1em 0;}
+.mdmath th,.mdmath td{border:1px solid #ccc;padding:.3em .6em;}
+.mdmath th{background:#f2f2f2;}
+.mdmath hr{border:none;border-top:1px solid #ddd;margin:1.5em 0;}
+/* fix katex .tag so numbering stays with the formula */
+.mdmath .katex .tag,.mdmath .katex-display>.katex>.katex-html>.tag{display:inline-block !important;position:absolute !important;right:0 !important;font-size:1em !important;font-weight:normal !important;line-height:1.2 !important;padding:0 !important;margin:0 !important;color:#000 !important;background-color:transparent !important;border-radius:0 !important;white-space:nowrap !important;text-decoration:none !important;text-shadow:none !important;box-shadow:none !important;}
+/* chinese text in math (\text{...}) matches body */
+.mdmath .katex .mord.text,.mdmath .katex .textrm,.mdmath .katex .mtext{font-family:"LMRoman10","SimHei",serif !important;}
