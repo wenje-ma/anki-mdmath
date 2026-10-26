@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """mdmath:markdown+katex cards for anki, renders like vscode+mpe."""
 from __future__ import annotations
+import json
 import os
 import re
 from aqt import mw,gui_hooks
@@ -28,9 +29,13 @@ def _media_copies():
 
 def _cfg():
   try:
-    return mw.addonManager.getConfig(__name__) or {}
+    p = os.path.join(ADDON_DIR, "config.json")
+    if os.path.isfile(p):
+      with open(p, "rb") as f:
+        return json.loads(f.read().decode("utf-8")) or {}
   except Exception:
-    return {}
+    pass
+  return {}
 
 def _user_css(c=None):
   c=c or {}
