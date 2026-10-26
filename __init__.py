@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """mdmath:markdown+katex cards for anki, renders like vscode+mpe."""
 from __future__ import annotations
-import json
 import os
 import re
 from aqt import mw,gui_hooks
@@ -27,36 +26,6 @@ def _media_copies():
       out.append((MEDIA_PREFIX+"font_"+fn,os.path.join(FONTS_DIR,fn)))
   return out
 
-def _cfg():
-  try:
-    p = os.path.join(ADDON_DIR, "config.json")
-    if os.path.isfile(p):
-      with open(p, "rb") as f:
-        return json.loads(f.read().decode("utf-8")) or {}
-  except Exception:
-    pass
-  return {}
-
-def _user_css(c=None):
-  c=c or {}
-  def g(k,d):
-    return c.get(k,d)
-  fs=g("fontSize",16)
-  lh=g("lineHeight",1.6)
-  ff=g("fontFamily",'"LMRoman10","SimHei",serif')
-  mf=g("monoFont","Consolas,monospace")
-  tc=g("textColor","#111")
-  bc=g("bgColor","#fff")
-  pm=g("pageMargin","1in")
-  pmm=g("pageMarginMobile","0.5in")
-  return (
-    "body{background-color:%s;}\n"
-    ".mdmath{font-family:%s;font-size:%dpx;line-height:%.2f;color:%s;padding:0 %s;}\n"
-    "@media (max-width:768px){.mdmath{padding:0 %s;}}\n"
-    ".mdmath pre,.mdmath code{font-family:%s;}\n"
-    %(bc,ff,fs,lh,tc,pm,pmm,mf)
-  )
-
 def _inject_media():
   mm=mw.col.media
   for media_name,local in _media_copies():
@@ -65,8 +34,10 @@ def _inject_media():
     if media_name.startswith(MEDIA_PREFIX+"font_") and mm.have(media_name):
       continue
     if media_name==MEDIA_PREFIX+"style.css":
-      base=open(local,"rb").read().decode("utf-8")
-      mm.write_data(media_name,(base+"\n"+_user_css(_cfg())).encode("utf-8"))
+      if mm.have(media_name):
+        continue
+      with open(local,"rb") as f:
+        mm.write_data(media_name,f.read())
     elif media_name==MEDIA_PREFIX+"katex.min.css":
       text=open(local,"rb").read().decode("utf-8")
       text=re.sub(r"url\(fonts/([^)]+)\)","url("+MEDIA_PREFIX+r"font_\1)",text)

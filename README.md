@@ -40,13 +40,23 @@ python C:\Users\18904\Github\wenje-codes\space_gt.py <folder>
 It recursively inserts a space after `<`/`>` in `.md`/`.qmd`/`.tex` files (and keeps `<br>` intact).
 
 ## Customize layout
-Edit `config.json` in the add-on folder (Windows: `%APPDATA%\Anki2\addons21\mdmath\config.json`), then **restart Anki** to apply:
-- `fontSize`: base font size, px (default 16)
-- `lineHeight`: line spacing (default 1.6)
-- `fontFamily`: body font stack (e.g. `"LMRoman10","SimHei",serif`)
-- `monoFont`: code font (default `Consolas,monospace`)
-- `textColor` / `bgColor`: text / background color
-- `pageMargin` / `pageMarginMobile`: desktop / mobile page margins (default `1in` / `0.5in`)
+Cards render with the stylesheet `_mdmath_style.css` in your Anki media folder
+(`%APPDATA%\Anki2\<profile>\collection.media\_mdmath_style.css`). Edit it directly to
+change typography; the add-on creates it on first run and never overwrites it.
+
+Open it in any text editor. The base typography is the `.mdmath` rule (annotated in-file):
+
+    .mdmath{font-family:"LMRoman10","SimHei",serif;font-size:16px;line-height:1.6;color:#111;text-align:left;padding:0 1in;}
+
+Adjust any value:
+- `font-size`   : base font size, px (e.g. `16`, `20`)
+- `line-height` : line spacing (e.g. `1.6`, `1.8`)
+- `padding:0 1in` : page margin (e.g. `0.5in`, `2em`)
+- `color` / `font-family`: text color / body font stack
+
+Save, then flip a card (or restart Anki) to see the change.
+
+To restore defaults, delete `_mdmath_style.css` and restart Anki; the add-on recreates it.
 
 ## Packaging
 Run `build.ps1` in this directory -> `mdmath.ankiaddon` (for Anki "Install from file").
