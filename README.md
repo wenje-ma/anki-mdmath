@@ -11,8 +11,8 @@ Write **Markdown + KaTeX math** in Anki card fields; renders like VSCode + Markd
   - Inline `$...$` and display `$$...$$` math (incl. `\tag` numbering, `\begin{cases/pmatrix/align}` etc.)
   - Pipe tables (cells may contain math)
   - HTML passthrough (`
->
-> `, `<div align=center>`)
+> 
+> `, `< div align=center> `)
   - Code blocks (python / bash / latex / none, monospace, no highlight)
 - Math rendered by **KaTeX** (same as MPE default), bundled locally, works offline.
 - Styles ported from `.crossnote/style.less`: fonts LMRoman10 / SimHei / FangSong, KaTeX `.tag` numbering fix etc.
@@ -32,20 +32,20 @@ Recommended: install the packaged file (runtime files only).
 - Write Markdown in fields as-is (newlines, `#`, `$...$` kept); auto-rendered on review.
 - For each `## question` section: put the question in `Front`, question+answer (`### answer`) in `Back`; your choice.
 
-## Markdown `<` `>` note
-Anki injects card fields as HTML, not raw Markdown. A bare `<` is read as the start of an HTML tag, so in `0<p<1` everything after `<` is dropped on review. **Always put a space after `<` and `>`** (e.g. `0< p< 1`, `\left< x \right>`) so the browser does not treat them as tags; the space is harmless in math.
+## Markdown `< ` `> ` note
+Anki injects card fields as HTML, not raw Markdown. A bare `< ` is read as the start of an HTML tag, so in `0< p< 1` everything after `< ` is dropped on review. **Always put a space after `< ` and `> `** (e.g. `0< p< 1`, `\left< x \right> `) so the browser does not treat them as tags; the space is harmless in math.
 
 To fix existing files automatically, run the helper script:
 ```
-python C:\Users\18904\Github\wenje-codes\space_gt.py <folder>
+python C:\Users\18904\Github\wenje-codes\space_gt.py < folder> 
 ```
-It recursively inserts a space after `<`/`>` in `.md`/`.qmd`/`.tex` files (and keeps `
->
+It recursively inserts a space after `< `/`> ` in `.md`/`.qmd`/`.tex` files (and keeps `
+> 
 > ` intact).
 
 ## Customize layout
 Cards render with the stylesheet `_mdmath_style.css` in your Anki media folder
-(`%APPDATA%\Anki2\<profile>\collection.media\_mdmath_style.css`). Edit it directly to
+(`%APPDATA%\Anki2\< profile> \collection.media\_mdmath_style.css`). Edit it directly to
 change typography; the add-on creates it on first run and never overwrites it.
 
 Open it in any text editor. The base typography is the `.mdmath` rule (annotated in-file):
