@@ -10,7 +10,9 @@ Write **Markdown + KaTeX math** in Anki card fields; renders like VSCode + Markd
   - Markdown basics (headings / bold / blockquote / lists / horizontal rule)
   - Inline `$...$` and display `$$...$$` math (incl. `\tag` numbering, `\begin{cases/pmatrix/align}` etc.)
   - Pipe tables (cells may contain math)
-  - HTML passthrough (`<br>`, `<div align=center>`)
+  - HTML passthrough (`
+>
+> `, `<div align=center>`)
   - Code blocks (python / bash / latex / none, monospace, no highlight)
 - Math rendered by **KaTeX** (same as MPE default), bundled locally, works offline.
 - Styles ported from `.crossnote/style.less`: fonts LMRoman10 / SimHei / FangSong, KaTeX `.tag` numbering fix etc.
@@ -37,7 +39,9 @@ To fix existing files automatically, run the helper script:
 ```
 python C:\Users\18904\Github\wenje-codes\space_gt.py <folder>
 ```
-It recursively inserts a space after `<`/`>` in `.md`/`.qmd`/`.tex` files (and keeps `<br>` intact).
+It recursively inserts a space after `<`/`>` in `.md`/`.qmd`/`.tex` files (and keeps `
+>
+> ` intact).
 
 ## Customize layout
 Cards render with the stylesheet `_mdmath_style.css` in your Anki media folder
