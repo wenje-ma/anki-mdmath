@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-"""mdmath:card templates+render js(anki)."""
 MEDIA_PREFIX="_mdmath_"
 
 _RENDER_JS="""

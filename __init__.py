@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-"""mdmath:markdown+katex cards for anki, renders like vscode+mpe."""
 from __future__ import annotations
 import os
 import re
@@ -14,12 +12,12 @@ FONTS_DIR=os.path.join(ASSET_DIR,"fonts")
 
 def _media_copies():
   items=[
-    ("katex.min.js",os.path.join(ASSET_DIR,"katex.min.js")),
-    ("katex.min.css",os.path.join(ASSET_DIR,"katex.min.css")),
-    ("auto-render.min.js",os.path.join(ASSET_DIR,"auto-render.min.js")),
-    ("marked.min.js",os.path.join(ASSET_DIR,"marked.min.js")),
-    ("style.css",os.path.join(ASSET_DIR,"style.css")),
-  ]
+("katex.min.js",os.path.join(ASSET_DIR,"katex.min.js")),
+("katex.min.css",os.path.join(ASSET_DIR,"katex.min.css")),
+("auto-render.min.js",os.path.join(ASSET_DIR,"auto-render.min.js")),
+("marked.min.js",os.path.join(ASSET_DIR,"marked.min.js")),
+("style.css",os.path.join(ASSET_DIR,"style.css")),
+]
   out=[(MEDIA_PREFIX+name,path) for name,path in items]
   if os.path.isdir(FONTS_DIR):
     for fn in sorted(os.listdir(FONTS_DIR)):
@@ -60,7 +58,7 @@ def _ensure_notetype():
     return
   changed=False
   existing=[f["name"] for f in nt["flds"]]
-  for fname in ("Front","Back"):
+  for fname in("Front","Back"):
     if fname not in existing:
       nt["flds"].append(mm.new_field(fname))
       changed=True
